@@ -1,3 +1,6 @@
+
+sql queries are in setup.sql
+
 Bookstore Management Application
 
 TIP: USE VSCODE
