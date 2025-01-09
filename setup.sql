@@ -128,7 +128,7 @@ AND OrderDate BETWEEN '2024-12-01' AND '2025-01-01'
 GROUP BY Orders.BookID, OrderDate 
 ORDER BY OrderDate;
 
--- Supprimer le livre ayant BookID = 1070 --
+-- Supprimer le livre ayant BookID = 5 --
 DELETE FROM Books 
 WHERE BookID = 5;
 
