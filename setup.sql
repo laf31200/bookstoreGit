@@ -89,3 +89,52 @@ FROM Books,Orders
 WHERE Books.BookID=Orders.BookID 
 GROUP BY Title ;
 
+-- Afficher les titres, quantités et dates de commandes pour CustomerID = 3 --
+SELECT Title, Quantity, OrderDate 
+FROM Orders, Books 
+WHERE CustomerID = 3
+AND Orders.BookID = Books.BookID;
+
+-- Afficher les titres et quantités des livres commandés en 2024 --
+SELECT Title, Quantity 
+FROM Orders, Books 
+WHERE OrderDate LIKE "%2024%"
+AND Orders.BookID = Books.BookID;
+
+-- Afficher les quantités et dates de commande dont le titre contient "Harry" --
+SELECT Quantity, OrderDate 
+FROM Orders, Books 
+WHERE Title LIKE "%Harry%"
+AND Orders.BookID = Books.BookID;
+
+-- Afficher les dates de commande et quantités pour BookID = 1 --
+SELECT OrderDate, Quantity 
+FROM Orders 
+WHERE BookID = 1;
+
+-- Afficher les 2 livres les plus commandés avec leurs titres et quantités totales --
+SELECT Title, SUM(Quantity) AS Total_Quantity 
+FROM Orders, Books 
+WHERE Books.BookID = Orders.BookID 
+GROUP BY Orders.BookID 
+ORDER BY Total_Quantity DESC 
+LIMIT 2;
+
+-- Calculer le chiffre d'affaires pour les commandes passées entre le 1er décembre 2024 et le 1er janvier 2025 --
+SELECT OrderDate, Quantity * Price AS TURNOVER 
+FROM Orders, Books 
+WHERE Books.BookID = Orders.BookID 
+AND OrderDate BETWEEN '2024-12-01' AND '2025-01-01' 
+GROUP BY Orders.BookID, OrderDate 
+ORDER BY OrderDate;
+
+-- Supprimer le livre ayant BookID = 1070 --
+DELETE FROM Books 
+WHERE BookID = 5;
+
+-- Afficher les noms, emails et numéros de téléphone des clients ayant passé au moins 2 commandes --
+SELECT DISTINCT Name, Email, Phone 
+FROM Customers, Orders 
+WHERE Customers.CustomerID = Orders.CustomerID 
+GROUP BY Orders.CustomerID 
+HAVING SUM(Quantity) >= 2;

@@ -3,14 +3,14 @@
         {
             "previewLimit": 50,
             "driver": "SQLite",
-            "database": "${workspaceFolder:Bookstore2}/bookstore2_LAN.sqlite",
+            "database": "${workspaceFolder:bookstoreGit}/bookstore_test_LAN.sqlite",
             "name": "DBBOOK"
         },
         {
             "previewLimit": 50,
             "driver": "SQLite",
             "name": "bookstore3",
-            "database": "${workspaceFolder:Bookstore2}/bookstore3.sqlite"
+            "database": "${workspaceFolder:bookstoreGit}/bookstore_test_LAN.sqlite"
         }
     ]
 }
