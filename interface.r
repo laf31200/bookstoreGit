@@ -374,7 +374,7 @@ observeEvent(input$generate_summary, {
     query <- paste("Summarize the book", input$book_title)
     api_url <- "https://api-inference.huggingface.co/models/facebook/bart-large-cnn"
     headers <- c(
-      `Authorization` = "Bearer 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", 
+      `Authorization` = "Bearer ", 
       `Content-Type` = "application/json"
     )
     data <- toJSON(list(inputs = query), auto_unbox = TRUE)
